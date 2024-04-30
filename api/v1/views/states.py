@@ -49,6 +49,7 @@ def delete_state(state_id):
 
     return make_response(jsonify({}), 200)
 
+
 @app_views.route('/states', methods=['POST'], strict_slashes=False)
 @swag_from('documentation/state/post_state.yml', methods=['POST'])
 def post_state():
@@ -89,3 +90,4 @@ def put_state(state_id):
             setattr(state, key, value)
     storage.save()
     return make_response(jsonify(state.to_dict()), 200)
+
